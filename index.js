@@ -34,7 +34,7 @@ app.post('/', (req, res) => {
   const data = req.body;
   
   if(data.line1 || data.line2) {
-    SetLCD(date.line1, data.line2);
+    SetLCD(data.line1, data.line2);
   }
 
   return res.redirect('/?date' + Date.now() + '&result=1');
