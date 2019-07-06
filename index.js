@@ -9,9 +9,15 @@ const lcd = new lcdi2c(1, 0x27, 16, 2);
 const app = express();
 
 function SetLCD(line1, line2) {
-  lcd.clear();
-  lcd.println(line1, 1);
-  lcd.println(line2, 2);
+  try {
+    lcd.clear();
+    lcd.println(line1, 1);
+    lcd.println(line2, 2);
+  }
+  catch(err) {
+    console.error('LCD functions error');
+    console.error(err);
+  }
 }
 
 // parse application/x-www-form-urlencoded
